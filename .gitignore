@@ -1,0 +1,8 @@
+
+# Стандартные исключения
+.DS_Store
+node_modules/
+dist/
+build/
+.env
+.vercel/

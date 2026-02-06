@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Звездные акции</title>
+    <title>Звездные акции — Вселенная скидок</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
@@ -34,6 +34,8 @@
             color: white;
             scrollbar-width: thin;
             scrollbar-color: #f20df2 #0a050a;
+            margin: 0;
+            padding: 0;
         }
         
         ::-webkit-scrollbar {
@@ -82,7 +84,6 @@
             overflow: hidden;
         }
 
-        /* Twinkling background stars */
         .static-star {
             position: absolute;
             background: white;
@@ -96,7 +97,6 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* Falling (shooting) stars */
         .shooting-star {
             position: absolute;
             top: var(--top);
@@ -130,12 +130,14 @@
             }
         }
     </style>
-<script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
@@ -143,6 +145,8 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- Точка входа для React приложения -->
+    <script type="module" src="./index.tsx"></script>
 <script type="module" src="/index.tsx"></script>
 </body>
 </html>
