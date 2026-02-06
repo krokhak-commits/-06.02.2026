@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звездные акции</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f20df2',
+                        'space-card': '#1a0b1a',
+                        'background-dark': '#0a050a',
+                    },
+                    fontFamily: {
+                        sans: ['Spline Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a050a;
+            color: white;
+            scrollbar-width: thin;
+            scrollbar-color: #f20df2 #0a050a;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a050a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f20df2;
+            border-radius: 10px;
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(242, 13, 242, 0.8), 0 0 20px rgba(242, 13, 242, 0.4);
+        }
+
+        .glass-panel {
+            background: rgba(26, 11, 26, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(242, 13, 242, 0.1);
+        }
+
+        .rgb-stroke {
+            padding: 2px;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            background-size: 400%;
+            animation: rgb-animation 10s linear infinite;
+            border-radius: 9999px;
+        }
+
+        @keyframes rgb-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at top, #1B2735 0%, #090A0F 100%);
+            overflow: hidden;
+        }
+
+        /* Twinkling background stars */
+        .static-star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration) ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Falling (shooting) stars */
+        .shooting-star {
+            position: absolute;
+            top: var(--top);
+            left: var(--left);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(to right, rgba(242, 13, 242, 0), rgba(242, 13, 242, 1));
+            border-radius: 50%;
+            filter: drop-shadow(0 0 8px #f20df2);
+            animation: fall var(--duration) linear infinite;
+            animation-delay: var(--delay);
+            opacity: 0;
+            transform: rotate(-45deg);
+        }
+
+        @keyframes fall {
+            0% { 
+                transform: translateX(0) translateY(0) rotate(-45deg) scaleX(0); 
+                opacity: 0; 
+            }
+            10% { 
+                opacity: 1; 
+                transform: translateX(-10vw) translateY(10vh) rotate(-45deg) scaleX(1); 
+            }
+            90% { 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateX(-100vw) translateY(100vh) rotate(-45deg) scaleX(1); 
+                opacity: 0; 
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
